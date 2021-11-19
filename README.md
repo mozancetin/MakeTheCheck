@@ -1,2 +1,2 @@
 # MakeTheCheck
-Cafe automation software written with C# and SQLite
+Cafe automation program written in C#
