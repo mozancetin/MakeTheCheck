@@ -22,3 +22,4 @@ Cafe management program written in C#
 - [ ] Add waiter
 - [ ] Make some design
 - [ ] Make stock calculation
+- [ ] Add some analysis maybe?
