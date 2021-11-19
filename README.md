@@ -1,5 +1,5 @@
 # MakeTheCheck
-Cafe automation program written in C#
+Cafe management program written in C#
 
 # Images
 <h3>Add Order to Tables</h2>
