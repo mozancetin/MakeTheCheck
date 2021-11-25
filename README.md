@@ -23,3 +23,4 @@ Cafe management program written in C#
 - [ ] Make some design
 - [ ] Make stock calculation
 - [ ] Add some analysis maybe?
+- [ ] Add filter to the product select part
