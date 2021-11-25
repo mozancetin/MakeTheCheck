@@ -31,10 +31,9 @@ namespace MakeTheCheck.Helpers
         {
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listBox1
@@ -50,34 +49,20 @@ namespace MakeTheCheck.Helpers
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(258, 377);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.Location = new System.Drawing.Point(265, 400);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(57, 23);
+            this.button1.Size = new System.Drawing.Size(50, 30);
             this.button1.TabIndex = 1;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.numericUpDown1.Location = new System.Drawing.Point(127, 378);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(125, 22);
-            this.numericUpDown1.TabIndex = 2;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(12, 408);
+            this.button2.Location = new System.Drawing.Point(12, 436);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(303, 28);
             this.button2.TabIndex = 3;
@@ -91,28 +76,33 @@ namespace MakeTheCheck.Helpers
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.Location = new System.Drawing.Point(9, 377);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 20);
+            this.label1.Size = new System.Drawing.Size(133, 20);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Table Number:";
+            this.label1.Text = "New Table Name:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox1.Location = new System.Drawing.Point(13, 400);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(246, 29);
+            this.textBox1.TabIndex = 5;
             // 
             // TableHelper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 450);
+            this.ClientSize = new System.Drawing.Size(327, 475);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(343, 489);
-            this.MinimumSize = new System.Drawing.Size(343, 489);
             this.Name = "TableHelper";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TableHelper";
             this.Load += new System.EventHandler(this.TableHelper_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,8 +112,8 @@ namespace MakeTheCheck.Helpers
 
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

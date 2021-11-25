@@ -46,7 +46,7 @@ namespace MakeTheCheck
 
             comboBox1.DataSource = DBUtils.GetAllTables();
             comboBox1.ValueMember = "ID";
-            comboBox1.DisplayMember = "Number";
+            comboBox1.DisplayMember = "TableName";
             comboBox1.Refresh();
 
             if(comboBox1.Items.Count > 0)

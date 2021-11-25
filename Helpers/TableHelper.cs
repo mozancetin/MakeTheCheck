@@ -11,7 +11,7 @@ namespace MakeTheCheck.Helpers
         {
             InitializeComponent();
             listBox1.ValueMember = "ID";
-            listBox1.DisplayMember = "Number";
+            listBox1.DisplayMember = "TableName";
         }
 
         private void ReloadList()
@@ -29,9 +29,11 @@ namespace MakeTheCheck.Helpers
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int number = Convert.ToInt32(numericUpDown1.Value);
-            DBUtils.AddTable(number);
-            ReloadList();
+            if (!string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                DBUtils.AddTable(textBox1.Text);
+                ReloadList();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

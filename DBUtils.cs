@@ -24,7 +24,7 @@ namespace MakeTheCheck
                     command.ExecuteNonQuery();
 
                     var command2 = connection.CreateCommand();
-                    command2.CommandText = "CREATE TABLE IF NOT EXISTS Tables(ID INTEGER PRIMARY KEY AUTOINCREMENT, TABLE_NUMBER INTEGER NOT NULL)";
+                    command2.CommandText = "CREATE TABLE IF NOT EXISTS Tables(ID INTEGER PRIMARY KEY AUTOINCREMENT, TableName TEXT NOT NULL)";
                     command2.ExecuteNonQuery();
 
                     var command3 = connection.CreateCommand();
@@ -231,12 +231,12 @@ namespace MakeTheCheck
                 {
                     connection.Open();
                     var command = connection.CreateCommand();
-                    command.CommandText = "SELECT ID, TABLE_NUMBER FROM Tables";
+                    command.CommandText = "SELECT ID, TableName FROM Tables";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            allTables.Add(new Table() { ID = reader.GetInt32(0), Number = reader.GetInt32(1) });
+                            allTables.Add(new Table() { ID = reader.GetInt32(0), TableName = reader.GetString(1) });
                         }
                     }
                 }
@@ -318,7 +318,7 @@ namespace MakeTheCheck
             }
         }
 
-        public static bool IsTableNumberExists(int TableNumber)
+        public static bool IsTableNameExists(string TableName)
         {
             try
             {
@@ -326,8 +326,8 @@ namespace MakeTheCheck
                 {
                     connection.Open();
                     var command = connection.CreateCommand();
-                    command.CommandText = "SELECT ID, TABLE_NUMBER FROM Tables WHERE TABLE_NUMBER = @number";
-                    command.Parameters.AddWithValue("@number", TableNumber);
+                    command.CommandText = "SELECT ID, TableName FROM Tables WHERE TableName = @name";
+                    command.Parameters.AddWithValue("@name", TableName);
                     using (var reader = command.ExecuteReader())
                     {
                         if (reader.HasRows)
@@ -345,11 +345,11 @@ namespace MakeTheCheck
             }
         }
 
-        public static void AddTable(int TableNumber)
+        public static void AddTable(string TableName)
         {
-            if (IsTableNumberExists(TableNumber))
+            if (IsTableNameExists(TableName))
             {
-                MessageBox.Show("This table number is already exists.");
+                MessageBox.Show("This table name is already exists.");
                 return;
             }
 
@@ -359,8 +359,8 @@ namespace MakeTheCheck
                 {
                     connection.Open();
                     var command = connection.CreateCommand();
-                    command.CommandText = "INSERT INTO Tables (TABLE_NUMBER) VALUES(@number)";
-                    command.Parameters.AddWithValue("@number", TableNumber);
+                    command.CommandText = "INSERT INTO Tables (TableName) VALUES(@name)";
+                    command.Parameters.AddWithValue("@name", TableName);
                     command.ExecuteNonQuery();
                 }
             }

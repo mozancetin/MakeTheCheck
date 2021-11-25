@@ -3,6 +3,6 @@
     public class Table
     {
         public int ID { get; set; }
-        public int Number { get; set; }
+        public string TableName { get; set; }
     }
 }
