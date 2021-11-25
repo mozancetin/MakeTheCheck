@@ -14,7 +14,7 @@ Cafe management program written in C#
 ![Product Adding Section](./Photos/img2.png)
 
 <br> 
-<p> You can also save and delete table numbers in the program. Orders are given according to the table number. </p>
+<p> You can also save and delete tables in the program. Orders are given according to the table name. </p>
 
 # TODO's
 - [ ] Add icons
