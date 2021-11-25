@@ -38,8 +38,22 @@ namespace MakeTheCheck.Helpers
         {
             if (listBox1.SelectedItem != null)
             {
-                DBUtils.DeleteTableByID(((Table)listBox1.SelectedItem).ID);
-                ReloadList();
+                int id = ((Table)listBox1.SelectedItem).ID;
+                List<Order> orders = DBUtils.GetOrdersByTableID(id);
+                if (orders != null && orders.Count > 0)
+                {
+                    DialogResult result = MessageBox.Show("There is an order at this table. Delete it anyway?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    if (result == DialogResult.Yes)
+                    {
+                        DBUtils.DeleteTableByID(id);
+                        ReloadList();
+                    }
+                }
+                else
+                {
+                    DBUtils.DeleteTableByID(id);
+                    ReloadList();
+                }
             }
         }
     }

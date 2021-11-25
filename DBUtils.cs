@@ -373,16 +373,6 @@ namespace MakeTheCheck
 
         public static void DeleteTableByID(int id)
         {
-            List<Order> orders = GetOrdersByTableID(id);
-            if (orders != null)
-            {
-                if (orders.Count > 0)
-                {
-                    MessageBox.Show("There is an order at this table. You cannot delete it.");
-                    return;
-                }
-            }
-            orders.Clear();
             try
             {
                 using (SQLiteConnection connection = new SQLiteConnection($"Data Source={databasePath}"))
@@ -391,6 +381,27 @@ namespace MakeTheCheck
                     var command = connection.CreateCommand();
                     command.CommandText = "DELETE FROM Tables WHERE ID = @id";
                     command.Parameters.AddWithValue("@id", id);
+                    command.ExecuteNonQuery();
+                    DeleteOrderByTableID(id);
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                return;
+            }
+        }
+
+        public static void DeleteOrderByTableID(int TableID)
+        {
+            try
+            {
+                using (SQLiteConnection connection = new SQLiteConnection($"Data Source={databasePath}"))
+                {
+                    connection.Open();
+                    var command = connection.CreateCommand();
+                    command.CommandText = "DELETE FROM Orders WHERE TableID = @id";
+                    command.Parameters.AddWithValue("@id", TableID);
                     command.ExecuteNonQuery();
                 }
             }
